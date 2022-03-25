@@ -1,0 +1,21 @@
+<script>
+	function Promise(resolve){
+
+	}
+
+	var p = new Promise(function(resolve,reject){
+		var t = Math.random();
+		setTimeout(function(){
+			t>0.5?resolve(t):reject(t)
+		},500)
+	})
+	Promise.prototype.then = function(resolveF,rejectF){
+		resolveF = this.resolve;
+		rejectF  = this.reject;
+	}
+	p.then(function(data){
+		console.log("then",data)
+	},function(err){
+		console.log("err",err)
+	})
+</script>
